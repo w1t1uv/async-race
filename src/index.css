@@ -1,0 +1,48 @@
+/*base styles start*/
+
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: 'Exo 2', 'Lato', 'Helvetica Neue', sans-serif;
+    background: #bcbcbc;
+}
+
+/*base styles end*/
+
+/*header styles start*/
+
+.header-container {
+    margin: 13px 0 0 13px;
+}
+
+.garage-page-button,
+.winners-page-button {
+    padding: 5px 17px;
+    font-weight: 700;
+    background: #6fa8dc;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #bcbcbc;
+}
+
+.winners-page-button {
+    margin: 0 0 0 13px;
+}
+
+/*header styles end*/
