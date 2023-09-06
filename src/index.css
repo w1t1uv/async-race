@@ -46,3 +46,22 @@ body {
 }
 
 /*header styles end*/
+
+/*garage styles start*/
+
+.wrapper {
+    display: flex;
+}
+
+.garage-title {
+    margin: 23px 0 0 13px;
+}
+
+.cars-counter {
+    margin: 0 0 0 13px;
+    padding: 29px 0 0 0;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+/*garage styles end*/

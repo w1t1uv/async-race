@@ -1,8 +1,9 @@
 import Page from '../../core/templates/page';
+import {variablesObject} from '../../core/variables/index';
 
 class GaragePage extends Page {
     static TextObject = {
-        MainTitle: 'Garage Page'
+        MainTitle: 'Garage'
     }
 
     constructor(id: string) {
@@ -10,8 +11,12 @@ class GaragePage extends Page {
     }
 
     render() {
+        const wrapper = this.createWrapper();
+        this.container.append(wrapper);
         const title = this.createHeaderTitle(GaragePage.TextObject.MainTitle);
-        this.container.append(title);
+        wrapper.append(title);
+        const count = this.createCarsCounter(variablesObject.carsCount);
+        wrapper.append(count);
         return this.container;
     }
 }
