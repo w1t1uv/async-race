@@ -17,6 +17,8 @@ class GaragePage extends Page {
         wrapper.append(title);
         const count = this.createCarsCounter(variablesObject.carsCount);
         wrapper.append(count);
+        const numberOfPage = this.createNumberOfPage(variablesObject.page);
+        this.container.append(numberOfPage);
         return this.container;
     }
 }
