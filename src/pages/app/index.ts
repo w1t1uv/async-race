@@ -2,6 +2,7 @@ import GaragePage from '../garage/index';
 import WinnersPage from '../winners/index';
 import Page from '../../core/templates/page';
 import Header from '../../core/components/header/index';
+import ErrorPage, {ErrorTypes} from '../error/index';
 
 export const enum PageIDs {
     GaragePage = 'garage-page',
@@ -25,6 +26,8 @@ class App {
             page = new GaragePage(idPage);
         } else if (idPage === PageIDs.WinnersPage) {
             page = new WinnersPage(idPage);
+        } else {
+            page = new ErrorPage(idPage, ErrorTypes.Error404);
         }
 
         if (page) {
