@@ -21,7 +21,7 @@ export const getCars = async (queryParams: QueryParams[] = []) => {
     const items = await response.json();
     const count = Number(response.headers.get('X-Total-Count'));
 
-    console.log(items, count);
+    return { items, count };
 }
 
 export const getCar = async (id: number) => {

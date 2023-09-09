@@ -64,4 +64,62 @@ body {
     font-weight: 700;
 }
 
+.number-of-page {
+    margin: 13px 0 0 13px;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.top-wrapper,
+.bottom-wrapper,
+.engine-wrapper {
+    display: flex;
+}
+
+.button {
+    cursor: pointer;
+    background: #6fa8dc;
+    border: none;
+    border-radius: 7px;
+}
+
+.button:hover {
+    background: #a3c2df;
+}
+
+.select {
+    margin: 7px 0 0 13px;
+}
+
+.remove {
+    margin: 7px 0 0 3px;
+}
+
+.car-name {
+    margin: 7px 0 0 13px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.start {
+    width: 25px;
+    height: 25px;
+    margin: 5px 0 0 13px;
+}
+
+.stop {
+    width: 25px;
+    height: 25px;
+    margin: 5px 0 0 3px;
+}
+
+.track {
+    border-top: 5px dashed #fff;
+}
+
+svg {
+    width: 90px;
+    height: 80px;
+}
+
 /*garage styles end*/
