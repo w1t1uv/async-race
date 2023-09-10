@@ -122,4 +122,54 @@ svg {
     height: 80px;
 }
 
+.create-wrapper {
+    margin: 37px 0 7px 13px;
+}
+
+.update-wrapper {
+    margin: 0 0 7px 13px;
+}
+
+.create-input,
+.update-input {
+    background-color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.create-color,
+.update-color {
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    height: 23px;
+}
+
+.create-button,
+.update-button,
+.race-button,
+.reset-button,
+.generate-button {
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    background-color: #6fa8dc;
+    border: none;
+    border-radius: 5px;
+}
+
+.create-button:hover,
+.update-button:hover,
+.race-button:hover,
+.reset-button:hover,
+.generate-button:hover {
+    background-color: #a3c2df;
+}
+
+.race-wrapper {
+    margin: 0 0 0 9px;
+}
+
 /*garage styles end*/
