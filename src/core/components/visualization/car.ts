@@ -1,6 +1,5 @@
 import Component from '../../templates/components';
 import {inlineSvgObject} from '../../../svg/index';
-import {getCars} from '../../methods/index';
 
 const Buttons = [
     {
@@ -22,50 +21,61 @@ const Buttons = [
 ];
 
 class Car extends Component {
-    constructor(tagName: string, className: string, id: string) {
-        super(tagName, className);
-        this.container.id = id;
+    readonly id: string;
+    readonly name: string;
+    readonly color: string;
+
+    private topWrapper = document.createElement('div');
+    private bottomWrapper = document.createElement('div');
+    private engineWrapper = document.createElement('div');
+
+    constructor(id: string, name: string, color: string, tagName: string = 'div', className: string = 'car') {
+        super(tagName, `${className}-${id}`);
+        this.id = id;
+        this.name = name;
+        this.color = color;
     }
 
     renderCarButtons() {
-        const topWrapper = document.createElement('div');
-        topWrapper.classList.add('top-wrapper');
-        const bottomWrapper = document.createElement('div');
-        bottomWrapper.classList.add('bottom-wrapper');
-        const engineWrapper = document.createElement('div');
-        engineWrapper.classList.add('engine-wrapper');
+        this.topWrapper.classList.add('top-wrapper');
+        this.topWrapper.classList.add(`top-wrapper-${this.id}`);
+        this.bottomWrapper.classList.add('bottom-wrapper');
+        this.bottomWrapper.classList.add(`bottom-wrapper-${this.id}`);
+        this.engineWrapper.classList.add('engine-wrapper');
+        this.engineWrapper.classList.add(`engine-wrapper-${this.id}`);
+
         Buttons.forEach((button) => {
             const buttonHTML = document.createElement('button');
             buttonHTML.classList.add(`${button.id}`);
             buttonHTML.classList.add('button');
             buttonHTML.innerText = button.text;
+
             if (button.id === 'select' || button.id === 'remove') {
-                topWrapper.append(buttonHTML);
+                this.topWrapper.append(buttonHTML);
             } else {
-                engineWrapper.append(buttonHTML);
+                this.engineWrapper.append(buttonHTML);
             }
         });
-        this.container.append(topWrapper);
-        this.container.append(bottomWrapper);
-        bottomWrapper.append(engineWrapper);
+
+        this.container.append(this.topWrapper);
+        this.container.append(this.bottomWrapper);
+        this.bottomWrapper.append(this.engineWrapper);
     }
 
     renderCarName(name: string) {
-        const topWrapper = document.querySelector('.top-wrapper')!;
         const carName = document.createElement('div');
         carName.classList.add('car-name');
-        topWrapper.append(carName);
+        this.topWrapper.append(carName);
         carName.innerText = name;
     }
 
     renderCarIcon(color: string) {
-        const engineWrapper = document.querySelector('.engine-wrapper')!;
         const image = document.createElement('div');
-        image.classList.add('car-icon');
-        engineWrapper.append(image);
+        image.classList.add(`car-icon-${this.id}`);
         image.innerHTML = inlineSvgObject.inlineCarIcon;
-        const carIcon = document.querySelector('svg')!;
-        carIcon.style.fill = color;
+        const svg = image.lastElementChild!;
+        svg.setAttribute('fill', color);
+        this.engineWrapper.append(image);
     }
 
     renderTrack() {
@@ -74,20 +84,11 @@ class Car extends Component {
         this.container.append(track);
     }
 
-    async renderData() {
-        await getCars([{ key: '_page', value: 1 }, { key: '_limit', value: 7 }])
-            .then(response => {
-                for (let i = 0; i < response.count; i++) {
-                    this.renderCarButtons();
-                    this.renderCarName(response.items[i].name);
-                    this.renderCarIcon(response.items[i].color);
-                    this.renderTrack();
-                }
-            });
-    }
-
     render() {
-        this.renderData();
+        this.renderCarButtons();
+        this.renderCarName(this.name);
+        this.renderCarIcon(this.color);
+        this.renderTrack();
         return this.container;
     }
 }

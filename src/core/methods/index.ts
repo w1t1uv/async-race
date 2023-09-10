@@ -28,7 +28,7 @@ export const getCar = async (id: number) => {
     const response = await fetch(`${urlObject.url}${path.garage}/${id}`);
     const item = await response.json();
 
-    console.log(item);
+    return item;
 }
 
 export const createCar = async (body: BodyParams) => {
@@ -41,7 +41,7 @@ export const createCar = async (body: BodyParams) => {
     });
     const item = await response.json();
 
-    console.log(item);
+    return item;
 }
 
 export const updateCar = async (id: number, body: BodyParams) => {
@@ -54,7 +54,7 @@ export const updateCar = async (id: number, body: BodyParams) => {
     });
     const item = await response.json();
 
-    console.log(item);
+    return item;
 }
 
 export const deleteCar = async (id: number) => {
@@ -63,5 +63,5 @@ export const deleteCar = async (id: number) => {
     });
     const item = await response.json();
 
-    console.log(item);
+    return item;
 }
