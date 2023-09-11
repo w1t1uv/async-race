@@ -1,5 +1,6 @@
 import Component from '../../templates/components';
 import {inlineSvgObject} from '../../../svg/index';
+import {deleteCar} from '../../methods/index';
 
 const Buttons = [
     {
@@ -50,8 +51,12 @@ class Car extends Component {
             buttonHTML.classList.add('button');
             buttonHTML.innerText = button.text;
 
-            if (button.id === 'select' || button.id === 'remove') {
+            if (button.id === 'select') {
                 this.topWrapper.append(buttonHTML);
+                buttonHTML.classList.add(`select-${this.id}`);
+            } else if (button.id === 'remove') {
+                this.topWrapper.append(buttonHTML);
+                buttonHTML.classList.add(`remove-${this.id}`);
             } else {
                 this.engineWrapper.append(buttonHTML);
             }
@@ -84,11 +89,28 @@ class Car extends Component {
         this.container.append(track);
     }
 
+    remove() {
+        this.topWrapper.addEventListener('click', async function (event) {
+            let target = event.target;
+
+            if (target instanceof HTMLElement) {
+                if (target.closest('.remove')) {
+                    for (let i = 0; i < 1000; i++) {
+                        if (target.closest(`.remove-${i}`)) {
+                            await deleteCar(i);
+                        }
+                    }
+                }
+            }
+        });
+    }
+
     render() {
         this.renderCarButtons();
         this.renderCarName(this.name);
         this.renderCarIcon(this.color);
         this.renderTrack();
+        this.remove();
         return this.container;
     }
 }
