@@ -6,6 +6,11 @@ type QueryParams = {
     value: number;
 }
 
+type CreateBody = {
+    name: string;
+    color: string;
+}
+
 type BodyParams = {
     method: string;
     headers?: string;
@@ -31,7 +36,7 @@ export const getCar = async (id: number) => {
     return item;
 }
 
-export const createCar = async (body: BodyParams) => {
+export const createCar = async (body: CreateBody) => {
     const response = await fetch(`${urlObject.url}${path.garage}`, {
         method: 'POST',
         headers: {
