@@ -11,6 +11,11 @@ type CreateBody = {
     color: string;
 }
 
+type UpdateBody = {
+    name: string;
+    color: string;
+}
+
 type BodyParams = {
     method: string;
     headers?: string;
@@ -49,7 +54,7 @@ export const createCar = async (body: CreateBody) => {
     return item;
 }
 
-export const updateCar = async (id: number, body: BodyParams) => {
+export const updateCar = async (id: number, body: UpdateBody) => {
     const response = await fetch(`${urlObject.url}${path.garage}/${id}`, {
         method: 'PATCH',
         headers: {

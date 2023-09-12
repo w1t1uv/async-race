@@ -1,6 +1,6 @@
 import Component from '../../templates/components';
 import {inlineSvgObject} from '../../../svg/index';
-import {deleteCar} from '../../methods/index';
+import {deleteCar, updateCar} from '../../methods/index';
 
 const Buttons = [
     {
@@ -20,6 +20,8 @@ const Buttons = [
         text: 'B'
     }
 ];
+
+let select: number;
 
 class Car extends Component {
     readonly id: string;
@@ -70,6 +72,7 @@ class Car extends Component {
     renderCarName(name: string) {
         const carName = document.createElement('div');
         carName.classList.add('car-name');
+        carName.classList.add(`car-name-${this.id}`);
         this.topWrapper.append(carName);
         carName.innerText = name;
     }
@@ -98,11 +101,49 @@ class Car extends Component {
                     for (let i = 0; i < 1000; i++) {
                         if (target.closest(`.remove-${i}`)) {
                             await deleteCar(i);
+                            const car = document.querySelector(`.car-${i}`)!;
+                            car.innerHTML = '';
                         }
                     }
                 }
             }
         });
+    }
+
+    findSelect() {
+        const updateInput = document.querySelector('.update-input')!;
+        this.container.addEventListener('click', function (event) {
+            let target = event.target;
+
+            if (target instanceof HTMLElement) {
+                if (target.closest('.select')) {
+                    for (let i = 0; i < 1000; i++) {
+                        if (target.closest(`.select-${i}`)) {
+                            select = i;
+                            if (updateInput instanceof HTMLInputElement) {
+                                const name = document.querySelector(`.car-name-${i}`)!;
+                                updateInput.value = name.innerHTML;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    update() {
+        const updateInput = document.querySelector('.update-input')!;
+        const color = document.querySelector('.update-color')!;
+        const updateButton = document.querySelector('.update-button')!;
+
+        if (updateInput instanceof HTMLInputElement && color instanceof HTMLInputElement) {
+            updateButton.addEventListener('click', async function () {
+                await updateCar(select, {
+                    name: updateInput.value,
+                    color: color.value
+                });
+            });
+        }
     }
 
     render() {
@@ -111,6 +152,8 @@ class Car extends Component {
         this.renderCarIcon(this.color);
         this.renderTrack();
         this.remove();
+        this.findSelect();
+        this.update();
         return this.container;
     }
 }
