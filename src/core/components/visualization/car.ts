@@ -142,6 +142,7 @@ class Car extends Component {
                     name: updateInput.value,
                     color: color.value
                 });
+                location.reload();
             });
         }
     }

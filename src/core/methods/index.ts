@@ -16,12 +16,6 @@ type UpdateBody = {
     color: string;
 }
 
-type BodyParams = {
-    method: string;
-    headers?: string;
-    body?: string;
-}
-
 const generateQueryString = (queryParams: QueryParams[] = []) => queryParams.length ?
     `?${queryParams.map(x => `${x.key}=${x.value}`).join('&')}` :
     '';
