@@ -23,6 +23,22 @@ class GaragePage extends Page {
         this.car = new Cars('div', 'cars');
     }
 
+    renderButtons() {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('pagination-wrapper');
+        const prev = document.createElement('button');
+        const next = document.createElement('button');
+        prev.classList.add('prev');
+        prev.classList.add('pagination-button');
+        prev.innerText = 'prev';
+        next.classList.add('next');
+        next.classList.add('pagination-button');
+        next.innerText = 'next';
+        wrapper.append(prev);
+        wrapper.append(next);
+        this.container.append(wrapper);
+    }
+
     render() {
         this.container.append(this.createCar.render());
         this.container.append(this.updateCar.render());
@@ -36,6 +52,7 @@ class GaragePage extends Page {
         const numberOfPage = this.createNumberOfPage(variablesObject.page);
         this.container.append(numberOfPage);
         this.container.append(this.car.render());
+        this.renderButtons();
         return this.container;
     }
 }

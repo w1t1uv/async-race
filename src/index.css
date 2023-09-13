@@ -172,4 +172,18 @@ svg {
     margin: 0 0 0 9px;
 }
 
+.pagination-button {
+    margin: 20px 0 20px 7px;
+    cursor: pointer;
+    background-color: #6fa8dc;
+    border: none;
+    border-radius: 5px;
+    width: 90px;
+    height: 20px;
+}
+
+.pagination-button:hover {
+    background-color: #a3c2df;
+}
+
 /*garage styles end*/

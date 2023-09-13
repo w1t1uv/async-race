@@ -154,6 +154,7 @@ class Car extends Component {
         this.remove();
         this.findSelect();
         this.update();
+        this.container.classList.add('car');
         return this.container;
     }
 }
