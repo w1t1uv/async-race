@@ -1,0 +1,189 @@
+/*base styles start*/
+
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: 'Exo 2', 'Lato', 'Helvetica Neue', sans-serif;
+    background: #bcbcbc;
+}
+
+/*base styles end*/
+
+/*header styles start*/
+
+.header-container {
+    margin: 13px 0 0 13px;
+}
+
+.garage-page-button,
+.winners-page-button {
+    padding: 5px 17px;
+    font-weight: 700;
+    background: #6fa8dc;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #bcbcbc;
+}
+
+.winners-page-button {
+    margin: 0 0 0 13px;
+}
+
+/*header styles end*/
+
+/*garage styles start*/
+
+.wrapper {
+    display: flex;
+}
+
+.garage-title {
+    margin: 23px 0 0 13px;
+}
+
+.cars-counter {
+    margin: 0 0 0 13px;
+    padding: 29px 0 0 0;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.number-of-page {
+    margin: 13px 0 0 13px;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.top-wrapper,
+.bottom-wrapper,
+.engine-wrapper {
+    display: flex;
+}
+
+.button {
+    cursor: pointer;
+    background: #6fa8dc;
+    border: none;
+    border-radius: 7px;
+}
+
+.button:hover {
+    background: #a3c2df;
+}
+
+.select {
+    margin: 7px 0 0 13px;
+}
+
+.remove {
+    margin: 7px 0 0 3px;
+}
+
+.car-name {
+    margin: 7px 0 0 13px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.start {
+    width: 25px;
+    height: 25px;
+    margin: 5px 0 0 13px;
+}
+
+.stop {
+    width: 25px;
+    height: 25px;
+    margin: 5px 0 0 3px;
+}
+
+.track {
+    border-top: 5px dashed #fff;
+}
+
+svg {
+    width: 90px;
+    height: 80px;
+}
+
+.create-wrapper {
+    margin: 37px 0 7px 13px;
+}
+
+.update-wrapper {
+    margin: 0 0 7px 13px;
+}
+
+.create-input,
+.update-input {
+    background-color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.create-color,
+.update-color {
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    height: 23px;
+}
+
+.create-button,
+.update-button,
+.race-button,
+.reset-button,
+.generate-button {
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    background-color: #6fa8dc;
+    border: none;
+    border-radius: 5px;
+}
+
+.create-button:hover,
+.update-button:hover,
+.race-button:hover,
+.reset-button:hover,
+.generate-button:hover {
+    background-color: #a3c2df;
+}
+
+.race-wrapper {
+    margin: 0 0 0 9px;
+}
+
+.pagination-button {
+    margin: 20px 0 20px 7px;
+    cursor: pointer;
+    background-color: #6fa8dc;
+    border: none;
+    border-radius: 5px;
+    width: 90px;
+    height: 20px;
+}
+
+.pagination-button:hover {
+    background-color: #a3c2df;
+}
+
+/*garage styles end*/
